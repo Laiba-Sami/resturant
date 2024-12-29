@@ -1,0 +1,11 @@
+http://localhost:4000/api/v1/reservation/send
+
+
+{
+    "firstName" : "Wasique",
+    "lastName" : "Asjid",
+    "email" : "123sendas",
+    "date": "1234",
+    "phone": "123456789",
+    "time": "1234"
+}
