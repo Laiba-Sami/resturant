@@ -8,7 +8,8 @@ pipeline {
     stages {
         stage('Build & Run Docker Containers') {
             steps {
-                sh 'docker-compose -p $COMPOSE_PROJECT_NAME -f docker-compose.yml up -d --build'
+                sh 'docker compose -p $COMPOSE_PROJECT_NAME -f docker-compose.yml up -d --build'
+
             }
         }
     }
