@@ -1,15 +1,18 @@
 pipeline {
     agent any
 
-    environment {
-        COMPOSE_PROJECT_NAME = "mern-ci-app"
-    }
-
     stages {
-        stage('Build & Run Docker Containers') {
+        stage('Clone Repository') {
             steps {
-                sh 'docker compose -p $COMPOSE_PROJECT_NAME -f docker-compose.yaml up -d --build'
+                git 'https://github.com/Laiba-Sami/resturant.git'
+            }
+        }
 
+        stage('Build and Run with Docker Compose') {
+            steps {
+                script {
+                    sh 'docker-compose -p resturant_ci -f docker-compose.yaml up -d --build'
+                }
             }
         }
     }
