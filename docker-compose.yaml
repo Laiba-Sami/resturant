@@ -1,0 +1,29 @@
+services:
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+
+  backend:
+    build: ./Backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
+    environment:
+      - CONFIG_PATH=./config/config.env
+    volumes:
+      - ./Backend:/usr/src/app
+
+  frontend:
+    build: ./Frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:

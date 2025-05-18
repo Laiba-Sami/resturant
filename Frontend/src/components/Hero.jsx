@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from './Navbar'
 
 const Hero = () => {
   return (
@@ -15,7 +14,7 @@ const Hero = () => {
                 <p>Crafted To Perfection</p>
             </div>
             <div className="buttons">
-            <button className="menuBtn" onClick={'/Menu.jsx'}>Discover Menu</button>
+            <button className="menuBtn" >Discover Menu</button>
             <button className="menuBtn" >Book a Reservation</button>
             </div>
         </div>
